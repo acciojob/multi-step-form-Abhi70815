@@ -1,0 +1,90 @@
+import React from 'react'
+
+const Step = ({step, formData, onChange, onNext, onPrevious, onSubmit}) => {
+  return (
+    <div>
+        <div
+          id="step1" 
+          style={{display:step === 1 ? 'block':'none'}}
+        >
+            <h2>Step 1: Personal Information</h2>
+            <lable>
+                First Name:
+                <input
+                  type='text'
+                  id='first_name'
+                  value={formData.first_name}
+                  onChange={onChange}
+                  />
+            </lable>
+            <lable>
+                Last Name:
+                <input
+                type='text'
+                id='last_name'
+                value={formData.last_name}
+                onChange={onChange}
+                />
+            </lable>
+            {/* Add next Button for step 1 */}
+
+            <button type='button' onClick={onNext}>Next</button>
+        </div>
+
+        <div id='step2' style={{display:step === 2 ? 'block':'none'}}>
+            <lable>
+                Car Model:
+                <input
+                 type='text'
+                 id='model'
+                 value={formData.model}
+                 onChange={onChange}
+                />
+            </lable>
+            <br/>
+            <lable>
+                Car Price:
+                <input 
+                 type='text'
+                 id='car_price'
+                 value={formData.car_price}
+                 onChange={onChange}
+                 />
+            </lable>
+
+        {/* Add Previous and Next buttons for Step 2 */}
+        <button type='button' onClick={onPrevious}>Previous</button>
+        <button type='button' onClick={onNext}>Next</button>
+
+        </div>
+
+        <div id='step3' style={{display:step === 3 ? 'block':'none'}}>
+            <lable>
+                Card Information:
+                <input
+                 type='text'
+                 id='card_info'
+                 value={formData.card_info}
+                 onChange={onChange}
+                />
+            </lable>
+            <br/>
+            <lable>
+                Expiry Data:
+                <input
+                 type='text'
+                 id='expiry_date'
+                 value={formData.expiry_date}
+                 onChange={onChange}
+                 />
+            </lable>
+            {/* Add previous and submit buttons for Step 3 */}
+            <button type='button' onClick={onPrevious}>Previous</button>
+            <button type='button' onClick={onSubmit}>Submit</button>
+
+        </div>
+    </div>
+  )
+}
+
+export default Step
